@@ -31,6 +31,7 @@ body {
 .giff {
 	width: 50%;
      height: 50%;
+     justify-self: center;
 }
 
 .gameTile {
