@@ -1,0 +1,38 @@
+body {
+	background: pink;
+	box-sizing: border-box;
+}
+
+#container {
+	display: grid;
+     grid-template-columns: repeat(6, 1fr);
+     grid-template-rows: repeat(6, 1fr);
+	border: goldenrod 4px solid;
+	min-height: 90vh;
+     grid-gap: 10px;
+}
+
+#start{
+     background: #3498db;
+     text-align: center;
+     border-radius: 28px;
+     font-family: Arial;
+     color: #ffffff;
+     font-size: 20px;
+     padding: 10px 20px 10px 20px;
+     text-decoration: none;
+ }
+
+#start:hover {
+     background: #3cb0fd;
+     text-decoration: none;
+}
+
+.giff {
+	width: 50%;
+     height: 50%;
+}
+
+.gameTile {
+	
+}
