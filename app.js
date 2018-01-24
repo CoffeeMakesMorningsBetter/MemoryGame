@@ -37,7 +37,7 @@ var startButton = document.querySelector('#start')
 var board = document.querySelector('#container')
 var clicks = 0; // keeps track of overall trys to
 var matches = 0; // keeps track state of game 
-var arr = []
+var arr = [] // use to keep track of comparing user events 
 
 // event listener for startbutton
 startButton.addEventListener('click', startGame)
@@ -113,21 +113,24 @@ function gameLogic(event) {
 				// compare giffs src 
 				if (document.getElementById(arr[1]).src === document.getElementById(arr[0]).src) {
 					alert('YAY')
-						// increment match 
-						// remove event listeners from those elements 
+						matches++
 						document.getElementById(arr[1]).removeEventListener('click', gameLogic)
 						document.getElementById(arr[0]).removeEventListener('click', gameLogic)
-						arr=[]
 						// check winner 
+						if(checkWinner(matches)){
+							alert('Congrats your a winner, your score is ' + clicks)
+						} else {
+							arr=[]
+						}
 				} else {
 					setTimeout(function(){
 						document.getElementById(arr[1]).src = 'https://vignette.wikia.nocookie.net/southpark/images/0/0d/1a.jpg/revision/latest/scale-to-width-down/310?cb=20100826182516'
 					
-					},2000)
+					},1000)
 					setTimeout(function(){
 						document.getElementById(arr[0]).src = 'https://vignette.wikia.nocookie.net/southpark/images/0/0d/1a.jpg/revision/latest/scale-to-width-down/310?cb=20100826182516'
 					arr =[]	
-					},3000)
+					},1500)
 				}
 				
 		}	
@@ -135,11 +138,8 @@ function gameLogic(event) {
 }
 
 // check winner 
-function checkWinner(){
-	if(matches === giffs.length/2){
-		alert('Game will restart')
-		// show restart button 
-	}
+function checkWinner(matches){
+	return matches === giffs.length/2
 }
 
 function restart(){
