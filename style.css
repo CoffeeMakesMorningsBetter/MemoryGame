@@ -29,9 +29,14 @@ body {
 }
 
 .giff {
-	width: 50%;
-     height: 50%;
      justify-self: center;
+     align-self: center;
+     margin: auto;
+}
+
+img.giff {
+     width: 100px;
+     hight: 100px;
 }
 
 #score {

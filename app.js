@@ -156,6 +156,8 @@ function checkWinner(matches){
 
 // RESTART 
 function restart(){
+	//DONT FORGET TO RESET ARR
+	arr = []
 	clicks = 0;
 	matches = 0;
 	scoreClicks.innerText = 0;
