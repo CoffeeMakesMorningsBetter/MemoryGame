@@ -126,6 +126,7 @@ function gameLogic(event) {
 						// check winner 
 						if(checkWinner(matches)){
 							setTimeout(function(){alert('Congrats your a winner!')},2000)
+							setTimeout(checkHighScore, 3000)
 							setTimeout(restart,4000)
 						} else {
 							arr=[]
@@ -167,7 +168,28 @@ function restart(){
 	}
 }
 
+/******************************
+	    LOCAL STORAGE
+*******************************/
 
+function checkHighScore(){
+	if(!localStorage.getItem('highScore')) {
+		localStorage.setItem('highScore', clicks.toString())
+		alert('Congrats you have highest score ever because no one has played!')
+	} else if(localStorage.getItem('highScore')) {
+		// HIGH SCORE IS LOWEST CLICKS
+		if(Number(localStorage.getItem('highScore')) < clicks) {
+			alert('Fantasic win but still not the all time lowest score')
+		} else {
+			// remove old score
+			localStorage.removeItem('highSocre')
+			// set new high schore 
+			localStorage.setItem('highScore', clicks.toString())
+			alert('Congrats you have highest score ever!')
+		}
+
+	}
+}
 
 
 
