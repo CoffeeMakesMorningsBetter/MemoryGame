@@ -1,51 +1,58 @@
 body {
      background: linear-gradient(180deg, white, grey);
      box-sizing: border-box;
+     text-align: center;
+     font-family: Shrikhand;
+     letter-spacing: 1px;
 }
 
 #container {
      display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+     grid-template-columns: repeat(4, 1fr);
+     grid-template-rows: repeat(6, 1fr);
      border: goldenrod 4px solid;
      min-height: 90vh;
-  grid-gap: 10px;
+     grid-gap: 10px;
      margin-top: 20px;
      padding: 10px;
      border-radius: 10px;
 }
 
+#start, #container, img.giff {
+     box-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+
 #start{
-  background: #3498db;
+     background-color: goldenrod;
      text-align: center;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+     border-radius: 28px;
+     color: #ffffff;
+     font-size: 20px;
+     padding: 10px 20px 10px 20px;
+     text-decoration: none;
      margin-bottom: 20px;
  }
 
 #start:hover {
-   background: #3cb0fd;
-   text-decoration: none;
-      font-weight: bold;
+     background: purple;
+     font-weight: bold;
+     color: goldenrod;
+     font-size: 22.5px;
 }
 
-h1 {
-     text-align: center;
-     text-shadow:  1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+h1, #tracker, #score, #hscore {
+     text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
      color: goldenrod;
 }
+
 
 .gameTile {
      align-self: center;
      justify-self: center;
 }
 
-.gameTile:hover {
-
+img.giff:hover {
+     border: 5px solid rgb(184, 134, 11);
 }
 
 
@@ -56,9 +63,6 @@ img.giff {
      border-radius: 10px;
 }
 
-#score {
-     text-align: center;
+#tracker, #score, #hscore{
      font-size: 20px;
-           text-shadow:  1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
-           color: goldenrod;
 }

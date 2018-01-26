@@ -7,26 +7,26 @@ var giffs = [
 	"https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif",
 	"https://media.giphy.com/media/3m97D6EGGc4sE/giphy.gif",
 	"https://media.giphy.com/media/3m97D6EGGc4sE/giphy.gif",
-	// "https://media.giphy.com/media/FcHbO8FBMfsGY/giphy.gif",
-	// "https://media.giphy.com/media/FcHbO8FBMfsGY/giphy.gif",
-	// "https://media.giphy.com/media/4Z46NcIAOO3ok/giphy.gif",
-	// "https://media.giphy.com/media/4Z46NcIAOO3ok/giphy.gif",
-	// "https://media.giphy.com/media/gmg7s5bBQzlN6/giphy.gif",
-	// "https://media.giphy.com/media/gmg7s5bBQzlN6/giphy.gif",
-	// "https://media.giphy.com/media/UcK7JalnjCz0k/giphy.gif",
-	// "https://media.giphy.com/media/UcK7JalnjCz0k/giphy.gif",
-	// "https://media.giphy.com/media/EIJQbFyFFdo2s/giphy.gif",
-	// "https://media.giphy.com/media/EIJQbFyFFdo2s/giphy.gif",
-	// "https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif",
-	// "https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif",
-	// "https://media.giphy.com/media/aeIuSiMkcTsRO/giphy.gif",
-	// "https://media.giphy.com/media/aeIuSiMkcTsRO/giphy.gif",
-	// "https://media.giphy.com/media/wENb4DSakhJEA/giphy.gif",
-	// "https://media.giphy.com/media/wENb4DSakhJEA/giphy.gif",
-	// "https://media.giphy.com/media/143vPc6b08locw/giphy.gif",
-	// "https://media.giphy.com/media/143vPc6b08locw/giphy.gif",
-	// "https://media.giphy.com/media/xT8qBsOjMOcdeGJIU8/giphy.gif",
-	// "https://media.giphy.com/media/xT8qBsOjMOcdeGJIU8/giphy.gif"
+	"https://media.giphy.com/media/FcHbO8FBMfsGY/giphy.gif",
+	"https://media.giphy.com/media/FcHbO8FBMfsGY/giphy.gif",
+	"https://media.giphy.com/media/4Z46NcIAOO3ok/giphy.gif",
+	"https://media.giphy.com/media/4Z46NcIAOO3ok/giphy.gif",
+	"https://media.giphy.com/media/gmg7s5bBQzlN6/giphy.gif",
+	"https://media.giphy.com/media/gmg7s5bBQzlN6/giphy.gif",
+	"https://media.giphy.com/media/UcK7JalnjCz0k/giphy.gif",
+	"https://media.giphy.com/media/UcK7JalnjCz0k/giphy.gif",
+	"https://media.giphy.com/media/EIJQbFyFFdo2s/giphy.gif",
+	"https://media.giphy.com/media/EIJQbFyFFdo2s/giphy.gif",
+	"https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif",
+	"https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif",
+	"https://media.giphy.com/media/aeIuSiMkcTsRO/giphy.gif",
+	"https://media.giphy.com/media/aeIuSiMkcTsRO/giphy.gif",
+	"https://media.giphy.com/media/wENb4DSakhJEA/giphy.gif",
+	"https://media.giphy.com/media/wENb4DSakhJEA/giphy.gif",
+	"https://media.giphy.com/media/143vPc6b08locw/giphy.gif",
+	"https://media.giphy.com/media/143vPc6b08locw/giphy.gif",
+	"https://media.giphy.com/media/xT8qBsOjMOcdeGJIU8/giphy.gif",
+	"https://media.giphy.com/media/xT8qBsOjMOcdeGJIU8/giphy.gif"
 ]
 
 /******************************
@@ -157,7 +157,7 @@ function checkWinner(matches){
 
 // RESTART 
 function restart(){
-	//DONT FORGET TO RESET ARR
+	//DONT FORGET TO RESET ARR 
 	arr = []
 	clicks = 0;
 	matches = 0;
@@ -171,6 +171,14 @@ function restart(){
 /******************************
 	    LOCAL STORAGE
 *******************************/
+// following logic appends a random highscore on page if none exists on localStorage
+
+if(!localStorage.getItem('highScore')){
+	var fakeHScore = Math.floor(Math.random() * (100 - 24) + 24) 
+	document.querySelector('#hscore').innerText = fakeHScore
+} else {
+	document.querySelector('#hscore').innerText = localStorage.getItem('highScore')
+}
 
 function checkHighScore(){
 	if(!localStorage.getItem('highScore')) {
@@ -179,13 +187,14 @@ function checkHighScore(){
 	} else if(localStorage.getItem('highScore')) {
 		// HIGH SCORE IS LOWEST CLICKS
 		if(Number(localStorage.getItem('highScore')) < clicks) {
-			alert('Fantasic win but still not the all time lowest score')
+			alert('Fantatstic win but still short of the all time lowest score')
 		} else {
 			// remove old score
 			localStorage.removeItem('highSocre')
-			// set new high schore 
+			// set new high score 
 			localStorage.setItem('highScore', clicks.toString())
-			alert('Congrats you have highest score ever!')
+			alert('Congrats you have the highest score ever!')
+			document.querySelector('#hscore').innerText = localStorage.getItem('highScore')
 		}
 
 	}
